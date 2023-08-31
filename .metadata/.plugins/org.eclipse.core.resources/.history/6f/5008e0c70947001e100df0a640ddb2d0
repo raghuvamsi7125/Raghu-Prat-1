@@ -1,0 +1,23 @@
+package com.tr.dao;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("dao")
+public class Dao {
+
+	@Autowired
+	private DataSource ds;
+	
+	public void fun() throws SQLException {
+	  Connection con=ds.getConnection();
+	    if(con!=null) {
+	    	System.out.println("con is there");
+	    }
+	}
+}

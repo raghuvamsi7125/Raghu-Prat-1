@@ -1,0 +1,23 @@
+package com.tr.dao;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+
+@Component("dao")
+public class Dao {
+
+	private static final String q="SELECT * FROM EMP";
+	
+	@Autowired
+	private JdbcTemplate jt;
+	
+	public void fun() throws SQLException {
+	  List<Map<String,Object>>l=jt.queryForList(q);
+	  System.out.println(l);
+	}
+}
